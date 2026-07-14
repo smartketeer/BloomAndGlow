@@ -91,7 +91,7 @@ export default function CartDrawer({ getImageUrl }) {
                                         />
                                         <div className="flex-1">
                                             <h3 className="font-bold text-sm text-gray-800 uppercase">{item.flower_name}</h3>
-                                            <p className="text-tangerine font-semibold mt-1">${item.price}</p>
+                                            <p className="text-tangerine font-semibold mt-1">₱{item.price}</p>
                                             
                                             <div className="flex items-center mt-3 bg-gray-50 rounded-full w-min border border-gray-200">
                                                 <button 
@@ -137,7 +137,7 @@ export default function CartDrawer({ getImageUrl }) {
                                                 <div className="flex-1 min-w-0">
                                                     <h4 className="text-xs font-bold text-gray-800 uppercase truncate">{rec.flower_name}</h4>
                                                     <div className="flex items-center gap-2 mt-0.5">
-                                                        <span className="text-tangerine font-semibold text-sm">${rec.price}</span>
+                                                        <span className="text-tangerine font-semibold text-sm">₱{rec.price}</span>
                                                         <span className="text-[10px] text-gray-400 font-medium bg-white px-1.5 py-0.5 rounded-full">{Math.round(rec.confidence * 100)}% match</span>
                                                     </div>
                                                 </div>
@@ -162,7 +162,7 @@ export default function CartDrawer({ getImageUrl }) {
                     <div className="p-6 border-t border-gray-100 bg-gray-50">
                         <div className="flex items-center justify-between mb-4">
                             <span className="text-gray-600 font-medium">Subtotal</span>
-                            <span className="font-bold text-xl text-sage-dark">${cartSubtotal.toFixed(2)}</span>
+                            <span className="font-bold text-xl text-sage-dark">₱{cartSubtotal.toFixed(2)}</span>
                         </div>
                         <p className="text-sm text-gray-500 mb-6">Shipping and taxes calculated at checkout.</p>
                         <Link href="/checkout" className="block text-center w-full py-4 bg-sage hover:bg-sage-dark text-white font-bold rounded-full transition-colors shadow-lg">

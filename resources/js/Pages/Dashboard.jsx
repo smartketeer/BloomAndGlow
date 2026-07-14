@@ -101,7 +101,7 @@ export default function Dashboard({ auth, role, data }) {
                                 <div className="flex justify-between items-start">
                                     <div>
                                         <p className="text-sm font-medium text-gray-500 mb-1">Total Revenue</p>
-                                        <h3 className="text-3xl font-bold text-gray-900">${parseFloat(data.total_revenue).toLocaleString(undefined, { minimumFractionDigits: 2 })}</h3>
+                                        <h3 className="text-3xl font-bold text-gray-900">₱{parseFloat(data.total_revenue).toLocaleString(undefined, { minimumFractionDigits: 2 })}</h3>
                                     </div>
                                     <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
                                         <CurrencyDollarIcon className="w-6 h-6" />
@@ -183,10 +183,10 @@ export default function Dashboard({ auth, role, data }) {
                                         <LineChart data={data.revenue_data}>
                                             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
                                             <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#9CA3AF', fontSize: 12}} dy={10} />
-                                            <YAxis axisLine={false} tickLine={false} tick={{fill: '#9CA3AF', fontSize: 12}} dx={-10} tickFormatter={(value) => `$${value}`} />
+                                            <YAxis axisLine={false} tickLine={false} tick={{fill: '#9CA3AF', fontSize: 12}} dx={-10} tickFormatter={(value) => `₱${value}`} />
                                             <RechartsTooltip 
                                                 contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'}}
-                                                formatter={(value) => [`$${value}`, 'Revenue']}
+                                                formatter={(value) => [`₱${value}`, 'Revenue']}
                                             />
                                             <Line type="monotone" dataKey="revenue" stroke="#3b82f6" strokeWidth={4} dot={{r: 4, strokeWidth: 2}} activeDot={{r: 6, strokeWidth: 0}} />
                                         </LineChart>
@@ -398,13 +398,13 @@ export default function Dashboard({ auth, role, data }) {
                                                 {order.order_items.map(item => (
                                                     <div key={item.id} className="flex justify-between text-sm">
                                                         <span className="text-gray-600">{item.quantity}x {item.product.flower_name}</span>
-                                                        <span className="font-medium">${item.subtotal}</span>
+                                                        <span className="font-medium">₱{item.subtotal}</span>
                                                     </div>
                                                 ))}
                                             </div>
                                             
                                             <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                                                <span className="font-bold text-sage-dark text-lg">${order.total_amount}</span>
+                                                <span className="font-bold text-sage-dark text-lg">₱{order.total_amount}</span>
                                                 {order.order_status !== 'Delivered' && (
                                                     <button 
                                                         onClick={(e) => { e.stopPropagation(); handleMarkDelivered(order.order_id); }}
@@ -486,7 +486,7 @@ export default function Dashboard({ auth, role, data }) {
                                             </div>
                                             <div>
                                                 <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">Total</span>
-                                                <p className="font-medium text-gray-900">${order.total_amount}</p>
+                                                <p className="font-medium text-gray-900">₱{order.total_amount}</p>
                                             </div>
                                             <div>
                                                 <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">Order #</span>
@@ -508,7 +508,7 @@ export default function Dashboard({ auth, role, data }) {
                                                             <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
                                                         </div>
                                                         <div className="font-semibold text-sage-dark">
-                                                            ${item.subtotal}
+                                                            ₱{item.subtotal}
                                                         </div>
                                                     </div>
                                                 ))}

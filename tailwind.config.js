@@ -27,6 +27,11 @@ export default {
                     DEFAULT: '#f48c66',
                     light: '#f7a485',
                     dark: '#df7148',
+                },
+                rose: {
+                    DEFAULT: '#d4727a',
+                    light: '#f9e8ea',
+                    dark: '#b85560',
                 }
             },
             fontFamily: {
